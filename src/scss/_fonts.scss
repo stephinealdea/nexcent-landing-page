@@ -1,0 +1,36 @@
+/* Font-face Mixin */
+@mixin font-face(
+  $family-name, 
+  $font-path, 
+  $font-weight: normal, 
+  $font-style: normal, 
+  $font-stretch: normal,
+  $font-display: swap
+  ){
+    @font-face {
+    font-family: $family-name;
+    src: url('#{$font-path}.eot');
+    src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}.woff') format('woff'),
+        url('#{$font-path}.woff2') format('woff2'),
+        url('#{$font-path}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+    font-display: $font-display;
+  }
+}
+
+@include font-face('Open Sans Light','../fonts/opensans/light/Open-Sans-Light',300);
+
+@include font-face('Open Sans Regular','../fonts/opensans/regular/Open-Sans-Regular',400);
+
+@include font-face('Open Sans SemiBold','../fonts/opensans/semibold/Open-Sans-SemiBold',600);
+
+@include font-face('Open Sans Bold','../fonts/opensans/bold/Open-Sans-Bold',700);
+
+// Font Family
+$font_family_light: 'Open Sans Light', sans-serif;
+$font_family_regular: 'Open Sans Regular', sans-serif;
+$font_family_semibold: 'Open Sans SemiBold', sans-serif;
+$font_family_bold: 'Open Sans Bold', sans-serif;

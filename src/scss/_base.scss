@@ -1,0 +1,30 @@
+@use './variables' as *;
+@use './fonts' as *;
+
+:root {
+  scroll-behavior: smooth;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $primary_color;
+}
+
+body {
+  color: secondary_color;
+  background-color: $white;
+  font-family: $font_family_regular;
+}
+
+h1 {
+  font-family: $font_family_bold;
+  color: red;
+  font-size: 48px;
+}
+
+img {
+  width: 100%;
+}
