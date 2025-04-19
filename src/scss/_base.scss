@@ -1,6 +1,12 @@
 @use './variables' as *;
+@use './mixins' as *;
 @use './fonts' as *;
 
+/* 
+  ================================== 
+    GLOBAL STYLES
+  ==================================
+*/
 :root {
   scroll-behavior: smooth;
   font-synthesis: none;
@@ -9,22 +15,148 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: $primary_color;
+html {
+  font-size: 62.5%; /* 10px if browser default is 16px */
+  // This makes REM calculations simpler: 1.6rem = 16px
 }
 
 body {
-  color: secondary_color;
+  @include font-size(16);
+  color: $secondary_color;
   background-color: $white;
   font-family: $font_family_regular;
+  line-height: 1.6;
 }
 
-h1 {
+/* 
+  ================================== 
+    HEADING STYLES
+  ==================================
+*/
+h1,
+h2 {
   font-family: $font_family_bold;
-  color: red;
-  font-size: 48px;
 }
 
+h3,
+h4,
+h5 {
+   font-family: $font_family_semibold;
+}
+
+/* 
+  ================================== 
+    PARAGRAPH STYLES
+  ==================================
+*/
+p {
+  font-family: $font_family_regular;
+  margin-bottom: 20px;
+}
+
+/* 
+  ================================== 
+    LINK STYLES
+  ==================================
+*/
+a {
+  color: $primary_color;
+  text-decoration: none;
+
+  &:hover {
+    color: $hover_color;
+    text-decoration: underline;
+  }
+}
+
+/* 
+  ================================== 
+    IAMGES STYLES
+  ==================================
+*/
 img {
   width: 100%;
+}
+
+/* 
+  ----------------------------------
+    TABLET STYLES - 768 and up
+  ----------------------------------
+*/
+@include media-up(md) {
+  // Heading
+  h1, .h1 {
+    @include font-size(48);
+  }
+  h2, .h2 {
+    @include font-size(40);
+  }
+  h3, .h3 {
+    @include font-size(32);
+  }
+  h4, .h4 {
+    @include font-size(28);
+  }
+  h5, .h5 {
+    @include font-size(24);
+  }
+}
+
+/* 
+  ----------------------------------
+    DESKTOP STYLES - 1400 and up
+  ----------------------------------
+*/
+@include media-up(xl) {
+  // Heading
+  h1, .h1 {
+    @include font-size(64);
+  }
+  h2, .h2 {
+    @include font-size(48);
+  }
+  h3, .h3 {
+    @include font-size(40);
+  }
+  h4, .h4 {
+    @include font-size(32);
+  }
+  h5, .h5 {
+    @include font-size(28);
+  }
+}
+
+/* 
+  ----------------------------------
+    MOBILE STYLES - 767 and down
+  ----------------------------------
+*/
+@include media-down(md) {
+  // Global styles
+  body {
+    @include font-size(14);
+    line-height: 1.4;
+  }  
+
+  // Heading
+  h1, .h1 {
+    @include font-size(32);
+  }
+  h2, .h2 {
+    @include font-size(28);
+  }
+  h3, .h3 {
+    @include font-size(24);
+  }
+  h4, .h4 {
+    @include font-size(20);
+  }
+  h5, .h5 {
+    @include font-size(16);
+  }
+
+  // Paragraph
+  p {
+    margin-bottom: 12px;
+  }
 }

@@ -1,0 +1,13 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './fonts' as *;
+
+/* 
+  ================================== 
+    HEADER STYLES
+  ==================================
+*/
+
+header {
+  @include layout-contained;
+}
