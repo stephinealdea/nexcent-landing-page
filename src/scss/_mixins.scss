@@ -1,0 +1,98 @@
+@use './variables' as *;
+@use 'sass:map';
+@use 'sass:math';
+
+/* 
+  ================================== 
+    FONT CONVERSION MIXIN
+    - Converts unitless numbers to 0.1rem-based values
+    - @param {number} $size - Font size in pixels (e.g., 16 = 1.6rem)
+  ==================================
+*/
+@mixin font-size($size) {
+  font-size: math.div($size, 10) * 1rem;
+}
+
+/* 
+  ================================== 
+    CUSTOM MEDIA QUERIES
+      - Breakpoint Variables Setup
+      - Breakpoint map - customize these values as needed
+  ==================================
+*/
+$breakpoints: (
+  xs: 375px,   // Extra small devices (portrait phones)
+  sm: 640px,  // Small devices (landscape phones)
+  md: 768px,  // Medium devices (tablets)
+  lg: 1280px,  // Large devices (desktops)
+  xl: 1400px, // Extra large devices (large desktops)
+  xxl: 1600px // Extra extra large devices
+) !default;
+
+/* 
+  ----------------------------------
+    MEDIA QUERY MIXIN
+    - Minimum Width (min-width)
+  ----------------------------------
+*/
+@mixin media-up($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}`";
+  }
+}
+
+/* 
+  ----------------------------------
+    MEDIA QUERY MIXIN
+    - Maximum Width (max-width)
+  ----------------------------------
+*/
+@mixin media-down($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+    @media (max-width: ($value - 1px)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}`";
+  }
+}
+
+/* 
+  ================================== 
+    CUSTOM LAYOUT MIXIN
+      - Full Bleed - Edge-to-edge layout
+      - Full Width - Uses container width with gutters
+      - Contained - Constrained within max-width
+  ==================================
+*/
+// 
+@mixin layout-full-bleed() {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+ 
+@mixin layout-full-width() {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $layout-gutter;
+  padding-right: $layout-gutter;
+}
+
+@mixin layout-contained() {
+  width: 100%;
+  max-width: $layout-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $layout-gutter;
+  padding-right: $layout-gutter;
+}

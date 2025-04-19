@@ -1,17 +1,64 @@
-@use './fonts' as *;
-
-// Colors
+// Colors - Primary
 $shamrock: #28cb8b;
 $outer_Space: #263238;
 $dodger_blue: #2194F3;
 $white: #ffffff;
 
+// Neutral
+$tundora: #4D4D4D;
+$dove_gray: #717171;
+$regent_gray: #89939E;
+$caper: #ABBED1;
+$catskill_white: #F5F7FA;
 
+// Color Shade
+$apple_shade1: #43A046;
+$apple_shade2: #388E3B;
+$forest_green: #237D31;
+$parsley_shade1: #1B5E1F;
+$parsley_shade2: #103E13;
+
+// Color Tint
+$fern: #66BB69;
+$deyork: #81C784;
+$moss_green: #A5D6A7;
+$zanah: #C8E6C9;
+$panache: #E8F5E9;
+
+// Action Colors
+$lightning_yellow: #FBC02D;
+$cinnabar: #E53835;
+$sea_green: #2E7D31;
+
+
+// Color assignment:
 // Primary
 $primary_color: $shamrock;
 $secondary_color: $outer_Space;
 $info_color: $dodger_blue;
 
-// Neutral
+// Color Shade
+$color_shade_1: $apple_shade1;
+$color_shade_2: $apple_shade2;
+$color_shade_3: $forest_green;
+$color_shade_4: $parsley_shade1;
+$color_shade_5: $parsley_shade2;
 
+// Color Tint
+$color_tint_1: $fern;
+$color_tint_2: $deyork;
+$color_tint_3: $moss_green;
+$color_tint_4: $zanah;
+$color_tint_5: $panache;
 
+// Action
+$action_warning: $lightning_yellow;
+$action_error: $cinnabar;
+$action_success: $sea_green;
+
+// link Hover color
+$hover_color: $forest_green;
+
+// Layout Variables
+$layout-gutter: 20px !default;
+$layout-max-width: 1400px !default;
